@@ -10,6 +10,12 @@ const putRegister = async (req, res, next) => {
   try {
     const { username, password } = req.body;
 
+    if (!username || !password) {
+      return next(
+        createError.NotAcceptable('Username and password must be specified.')
+      );
+    }
+
     const validationErrors = registerValidation(username, password);
 
     if (validationErrors.length > 0) {
@@ -62,6 +68,12 @@ const putRegister = async (req, res, next) => {
 const postLogin = async (req, res, next) => {
   try {
     const { username, password } = req.body;
+
+    if (!username || !password) {
+      return next(
+        createError.NotAcceptable('Username and password must be specified.')
+      );
+    }
 
     const user = await User.findOne({ username });
 
