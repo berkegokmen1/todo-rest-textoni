@@ -105,15 +105,13 @@ const getMe = async (req, res, next) => {
     let result = req.user;
 
     if (q === '1' || q === 'true') {
-      result = await req.user
-        .populate({
-          path: 'todolist',
-          select: '_id title description createdAt',
-          options: {
-            sort: { createdAt: -1 },
-          },
-        })
-        .execPopulate();
+      result = await req.user.populate({
+        path: 'todolist',
+        select: '_id title description createdAt',
+        options: {
+          sort: { createdAt: -1 },
+        },
+      });
     }
 
     const { username, todolist, createdAt, ...rest } = result;
