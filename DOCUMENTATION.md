@@ -158,10 +158,16 @@ axios.post(
 - Sample call:
 
 ```js
-axios.put('http://localhost:4000/todo/me', {
-  title: 'create rest api documantation',
-  description: ':)',
-});
+axios.put(
+  'http://localhost:4000/todo/me',
+  {
+    title: 'create rest api documantation',
+    description: ':)',
+  },
+  {
+    headers: { Authorization: `Bearer [TOKEN]` },
+  }
+);
 ```
 
 > #### **Get Todos**
@@ -176,7 +182,13 @@ axios.put('http://localhost:4000/todo/me', {
 - Sample call:
 
 ```js
-axios.get('http://localhost:4000/todo/me');
+axios.get(
+  'http://localhost:4000/todo/me',
+  {},
+  {
+    headers: { Authorization: `Bearer [TOKEN]` },
+  }
+);
 ```
 
 > #### **Get Todo by ID**
@@ -191,7 +203,13 @@ axios.get('http://localhost:4000/todo/me');
 - Sample call:
 
 ```js
-axios.get('http://localhost:4000/todo/me');
+axios.get(
+  'http://localhost:4000/todo/me',
+  {},
+  {
+    headers: { Authorization: `Bearer [TOKEN]` },
+  }
+);
 ```
 
 > #### **Search**
@@ -213,7 +231,13 @@ axios.get('http://localhost:4000/todo/me');
 - Sample call:
 
 ```js
-axios.get('http://localhost:4000/todo/me/search?q=rest');
+axios.get(
+  'http://localhost:4000/todo/me/search?q=rest',
+  {},
+  {
+    headers: { Authorization: `Bearer [TOKEN]` },
+  }
+);
 ```
 
 > #### **Update Todo**
@@ -234,10 +258,17 @@ axios.get('http://localhost:4000/todo/me/search?q=rest');
 - Sample call:
 
 ```js
-axios.post('http://localhost:4000/todo/626bf65c90cdc47981018724', {
-  title: 'new title',
-  description: 'new desc',
-});
+axios.post(
+  'http://localhost:4000/todo/626bf65c90cdc47981018724',
+  {
+    title: 'new title',
+    description: 'new desc',
+  },
+  {},
+  {
+    headers: { Authorization: `Bearer [TOKEN]` },
+  }
+);
 ```
 
 > #### **Delete Todo**
@@ -255,5 +286,11 @@ axios.post('http://localhost:4000/todo/626bf65c90cdc47981018724', {
 - Sample call:
 
 ```js
-axios.delete('http://localhost:4000/todo/626bf65c90cdc47981018724');
+axios.delete(
+  'http://localhost:4000/todo/626bf65c90cdc47981018724',
+  {},
+  {
+    headers: { Authorization: `Bearer [TOKEN]` },
+  }
+);
 ```
